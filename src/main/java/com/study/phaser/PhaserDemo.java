@@ -59,7 +59,7 @@ public class PhaserDemo {
     }
 
     static class People implements Runnable {
-        private Phaser phaser;
+        private final Phaser phaser;
 
         public People(Phaser phaser) {
             this.phaser = phaser;
@@ -84,7 +84,7 @@ public class PhaserDemo {
         }
 
         void eat() {
-            sleepMills(500);
+            sleepMills(501);
             System.out.println(getThreadName() + "=====吃完了");
             phaser.arriveAndAwaitAdvance();
         }
